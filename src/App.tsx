@@ -35,7 +35,7 @@ export const moneyFilter = (
 
 function App() {
   const [money, setMoney] = useState<MoneyType[]>(defaultMoney);
-  const [filterValue, setFilterValue] = useState<any>('All');
+  const [filterValue, setFilterValue] = useState<BanknotesType>('All');
 
   const filteredMoney = moneyFilter(money, filterValue);
   return (
