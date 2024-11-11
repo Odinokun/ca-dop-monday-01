@@ -2,7 +2,7 @@ import { City } from './City';
 import { BanknotesType, MoneyType } from './App';
 
 type CountryPropsType = {
-  data: any;
+  data: MoneyType[];
   setFilterValue: any; // давайте подумаем, setFilter -это гоузчик, у которого всегда в руках товар
 };
 
