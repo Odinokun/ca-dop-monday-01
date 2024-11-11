@@ -3,46 +3,20 @@ import { BanknotesType, MoneyType } from './App';
 
 type CountryPropsType = {
   data: MoneyType[];
-  setFilterValue: any; // давайте подумаем, setFilter -это гоузчик, у которого всегда в руках товар
+  setFilterValue: (filter: BanknotesType) => void;
 };
 
 export const Country = (props: CountryPropsType) => {
-  const setAll = () => {
-    // засетаем 'All'
-  };
-
-  const setUSD = () => {
-    // засетаем 'USD'
-  };
-
-  const setCAD = () => {
-    // засетаем 'CAD'
-  };
+  const setAll = () => props.setFilterValue('All');
+  const setUSD = () => props.setFilterValue('USD');
+  const setCAD = () => props.setFilterValue('CAD');
 
   return (
     <div>
-      <button
-        onClick={() => {
-          'засетаем All';
-        }}
-      >
-        All
-      </button>
-      <button
-        onClick={() => {
-          'засетаем Dollars';
-        }}
-      >
-        USD
-      </button>
-      <button
-        onClick={() => {
-          'засетаем RUBLS';
-        }}
-      >
-        CAD
-      </button>
-      <City data={'передаем денюжки в город'} />
+      <button onClick={setAll}>All</button>
+      <button onClick={setUSD}>USD</button>
+      <button onClick={setCAD}>CAD</button>
+      <City data={props.data} />
     </div>
   );
 };
