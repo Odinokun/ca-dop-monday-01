@@ -4,5 +4,10 @@ type CurrentATMPropsType = {
   money: MoneyType;
 };
 export const CurrentATM = (props: CurrentATMPropsType) => {
-  return <div>{props.money.banknotes}</div>;
+  return (
+    <div>
+      <span>{props.money.banknotes}</span>
+      <span>{props.money.value}</span>
+    </div>
+  );
 };
