@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import './App.css';
 import { Country } from './Country';
+import './App.css';
 
-export type BanknotsType = 'USD' | 'CAD' | 'All';
+export type BanknotesType = 'USD' | 'CAD' | 'All';
 export type MoneyType = {
-  banknotes: BanknotsType;
+  banknotes: BanknotesType;
   value: number;
   number: string;
 };
 
-let defaultMoney: any = [
-  // типизируем
+let defaultMoney: MoneyType[] = [
   { banknotes: 'USD', value: 100, number: ' a1234567890' },
   { banknotes: 'USD', value: 50, number: ' z1234567890' },
   { banknotes: 'CAD', value: 100, number: ' w1234567890' },
@@ -22,7 +21,7 @@ let defaultMoney: any = [
 ];
 
 // типизируем на входе и выходе
-export const moneyFilter = (money: any, filter: any): any => {
+export const moneyFilter = (money: MoneyType, filter: BanknotesType): any => {
   //если пришел filter со значением 'All', то возвращаем все банкноты
   //return money.filter... ну да, придется фильтровать
 };

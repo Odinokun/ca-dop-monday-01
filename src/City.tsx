@@ -1,29 +1,29 @@
 import React from 'react';
-import {CurrentBankomat} from "./CurrentBankomat";
-import {MoneyType} from "./App";
+import { CurrentATM } from './CurrentATM';
+import { MoneyType } from './App';
 
 type CityPropsType = {
-    data: any //встречаем денюжки
-}
+  data: any; //встречаем денюжки
+};
 
 export const City = (props: CityPropsType) => {
+  // пока это пропускам
+  // const mappedMoney = props.data.map((el: MoneyType, index) => (
+  //     <CurrentATM
+  //         key={index}
+  //         money={el}
+  //     />
+  // ))
 
-    // пока это пропускам
-    // const mappedMoney = props.data.map((el: MoneyType, index) => (
-    //     <CurrentBankomat
-    //         key={index}
-    //         money={el}
-    //     />
-    // ))
-
-
-    return (
-        <div>
-            <div>Ну все парни, мапимся -выводим наши денюжки</div>
-            <div>На верстку ПОКА не обращаем внимания , сейчас занимаемся логикой</div>
-            {/*<div>{mappedMoney}</div>*/}
-        </div>
-    );
+  return (
+    <div>
+      <div>Ну все парни, мапимся -выводим наши денюжки</div>
+      <div>
+        На верстку ПОКА не обращаем внимания , сейчас занимаемся логикой
+      </div>
+      {/*<div>{mappedMoney}</div>*/}
+    </div>
+  );
 };
 //1
 // Вроде все норм, но нужно причесать код. Давайте создадим const mappedMoney = props.data.map(el=>el...)
