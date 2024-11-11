@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Country } from './Country';
 import './App.css';
 
@@ -20,7 +20,6 @@ let defaultMoney: MoneyType[] = [
   { banknotes: 'CAD', value: 50, number: ' v1234567890' },
 ];
 
-// типизируем на входе и выходе
 export const moneyFilter = (
   money: MoneyType[],
   filter: BanknotesType
@@ -38,15 +37,10 @@ function App() {
   const [money, setMoney] = useState<MoneyType[]>(defaultMoney);
   const [filterValue, setFilterValue] = useState<any>('All');
 
-  // а вот сейчас притормаживаем. И вдумчиво: константа filteredMoney получает результат функции moneyFilter
-  // в функцию передаем деньги и фильтр, по которому ихбудем выдавать(ретёрнуть)
   const filteredMoney = moneyFilter(money, filterValue);
   return (
     <div className='App'>
-      <Country
-        data={filteredMoney} //отрисовать будем деньги после фильтрации
-        setFilterValue={setFilterValue} //useState передаем? Так можно было?!
-      />
+      <Country data={filteredMoney} setFilterValue={setFilterValue} />
     </div>
   );
 }
