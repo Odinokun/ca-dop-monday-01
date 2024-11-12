@@ -5,33 +5,26 @@ type CurrentATMPropsType = {
   money: MoneyType;
 };
 export const CurrentATM = (props: CurrentATMPropsType) => {
-  return props.money.banknotes === 'USD' ? (
-    <BanknotesUSD>
+  const banknotesBg =
+    props.money.banknotes === 'USD' ? 'chartreuse' : 'cadetblue';
+
+  return (
+    <Banknote bgColor={banknotesBg}>
       <span>{props.money.banknotes}</span>
       <span>{props.money.value}</span>
       <span>{props.money.number}</span>
-    </BanknotesUSD>
-  ) : (
-    <BanknotesCAD>
-      <span>{props.money.banknotes}</span>
-      <span>{props.money.value}</span>
-      <span>{props.money.number}</span>
-    </BanknotesCAD>
+    </Banknote>
   );
 };
 
-const BanknotesUSD = styled.div`
-  background-color: chartreuse;
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  width: calc(33.33% - 20px);
-`;
+type StyledProps = {
+  bgColor: string;
+};
 
-const BanknotesCAD = styled.div`
-  background-color: violet;
+const Banknote = styled.div<StyledProps>`
   display: flex;
   flex-direction: column;
   padding: 30px;
   width: calc(33.33% - 20px);
+  background-color: ${props => props.bgColor};
 `;
