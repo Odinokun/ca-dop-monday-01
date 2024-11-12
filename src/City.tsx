@@ -1,5 +1,6 @@
 import { CurrentATM } from './CurrentATM';
 import { MoneyType } from './App';
+import styled from 'styled-components';
 
 type CityPropsType = {
   data: MoneyType[];
@@ -10,9 +11,12 @@ export const City = (props: CityPropsType) => {
     <CurrentATM key={index} money={el} />
   ));
 
-  return (
-    <div>
-      <div>{mappedMoney}</div>
-    </div>
-  );
+  return <Wrapper>{mappedMoney}</Wrapper>;
 };
+
+const Wrapper = styled.div<{ $primary?: boolean }>`
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30px;
+  gap: 30px;
+`;
